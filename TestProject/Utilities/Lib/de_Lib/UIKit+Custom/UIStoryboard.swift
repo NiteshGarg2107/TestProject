@@ -1,10 +1,5 @@
 //
 //  UIStoryboard.swift
-//  Reminisce
-//
-//  Created by Lakhwinder Singh on 07/03/17.
-//  Copyright © 2017 paige. All rights reserved.
-//
 
 import UIKit
 

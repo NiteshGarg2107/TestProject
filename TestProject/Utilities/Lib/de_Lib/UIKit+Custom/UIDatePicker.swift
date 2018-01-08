@@ -1,10 +1,6 @@
 //
 //  UIDatePicker.swift
-//  SNAKEMAIL
-//
-//  Created by CS on 13/06/17.
-//  Copyright © 2017 CS. All rights reserved.
-//
+
 
 import Foundation
 import UIKit

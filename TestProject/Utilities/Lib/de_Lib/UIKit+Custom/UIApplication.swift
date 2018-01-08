@@ -1,10 +1,6 @@
 //
 //  UIApplication.swift
-//  Reminisce
-//
-//  Created by Lakhwinder Singh on 23/02/17.
-//  Copyright © 2017 paige. All rights reserved.
-//
+
 
 import UIKit
 

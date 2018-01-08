@@ -1,10 +1,6 @@
 //
 //  ListBackgroundView.swift
-//  Rewire
-//
-//  Created by Lakhwinder Singh on 17/11/16.
-//
-//
+
 
 import UIKit
 let semiBoldFontname = "AvenirLTStd-Heavy_1"

@@ -1,9 +1,5 @@
 //
-//  UserStore.swift
-//  SNAKEMAIL
-//
-//  Created by CS on 13/06/17.
-//  Copyright © 2017 CS. All rights reserved.
+//  UserStore.swift+
 //
 
 import UIKit
@@ -13,10 +9,10 @@ class UserStore: APIStore {
     static let shared = UserStore()
 
     //Register User
-    func registerUser(Url: String,parameters: [String: AnyObject], Completion: @escaping (_ success: Bool,_ result: AnyObject?) -> Void) {
+    func getTableData(Url: String,parameters: [String: AnyObject], Completion: @escaping (_ success: Bool,_ result: AnyObject?) -> Void) {
        requestApiWithoutImage(parameters: parameters, URL: Url) { (success,result) in
             if success {
-                Completion(success,Response.registeredSuccessfully as AnyObject)
+                Completion(success,SongListData.init(json: result as! JSON).results as AnyObject)
             }else{
                 Completion(success,result)
             }
@@ -24,19 +20,15 @@ class UserStore: APIStore {
     }
 }
 
-///////////////////////////////////////////Extension//////////////////////////////////////////////////////
+//////////////////////// Extension//////////////////////////////////////////////////
 
+enum  ConnectionError: Int,Error {
+    case connectionErrro = 1
+    case dataNotFound
+}
 extension UserStore{
-    struct  keys {
-        static let verifyStatus = "verifyStatus"
-        static let userId = "userId"
-        static let name = "name"
-    }
     struct  Response {
-        static let registeredSuccessfully = "you have register successfully"
-        static let loginSuccessfully = "you have login successfully"
-        static let  connectionError = "you have login successfully"
-        static let varifyStatus = "Plese varify your account First"
+        static let  connectionError = "Connection not Found"
     }
     
     func requestApiWithImage(parameters: [String: AnyObject],URL: String, Completion: @escaping (_ success: Bool,_ result: AnyObject?) -> Void) {

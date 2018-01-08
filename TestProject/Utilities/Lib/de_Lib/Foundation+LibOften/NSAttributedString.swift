@@ -1,10 +1,6 @@
 //
 //  NSAttributedString.swift
-//  Dropneed
-//
-//  Created by CS_Mac4 on 30/05/17.
-//  Copyright © 2017 lakh. All rights reserved.
-//
+
 
 import UIKit
 

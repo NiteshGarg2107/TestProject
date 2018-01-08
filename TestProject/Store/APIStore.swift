@@ -1,10 +1,4 @@
-//
 //  APIStore.swift
-//  SNAKEMAIL
-//
-//  Created by CS on 13/06/17.
-//  Copyright © 2017 CS. All rights reserved.
-//
 
 import UIKit
 import Alamofire
@@ -34,20 +28,24 @@ class APIStore: NSObject,APIStoreProtocol {
 extension APIStore {
     struct Keys {
         static let Image = "image"
-        static let result = "result"
+        static let result = "results"
+        static let message = "dataFound"
     }
     
     func requestAPI(_ url: URLConvertible, parameters: Parameters? = nil, completion: @escaping (_ : NSDictionary?) -> Void){
         Alamofire.request(url, method: .post, parameters: parameters!, encoding: URLEncoding.default, headers: [:]).responseJSON { response in
             self.getValidDict(result: response.result, completion: { (dict, error) in
-                var datadict = dict?[Keys.result] as? NSDictionary
+                var datadict = dict
                 if datadict == nil {
                     datadict = NSDictionary.init(dictionary:
                         [kResultMessageKey: error?.localizedDescription ?? "Some error has been occured",
                          kResultStatusKey: false])
+                }else {
+                    datadict = NSDictionary.init(dictionary:
+                        [kResultMessageKey: Keys.message,
+                         kResultDataKey: dict as Any,
+                         kResultStatusKey: true])
                 }
-                if (Int(String(describing: dict?[kResultStatusKey])) != nil) {
-                 }
                 completion (datadict)
             })
         }

@@ -1,10 +1,6 @@
 //
 //  Date.swift
-//  Dropneed
-//
-//  Created by Lakhwinder Singh on 10/05/17.
-//  Copyright © 2017 lakh. All rights reserved.
-//
+
 
 import UIKit
 
@@ -49,11 +45,6 @@ extension String {
         dateFormatter.dateStyle = datestyle
         dateFormatter.timeStyle = timeStyle
         return dateFormatter.date(from: self)!
-    }
-    
-    func imageUrl() -> URL? {
-        let imageURL = URL(string: "\(imageUrl)/\(self)")
-        return imageURL
     }
     func ChallengeImageUrl() -> URL? {
         let imageURL = URL(string: "\(ChallengeImageUrl)/\(self)")

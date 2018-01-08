@@ -1,9 +1,6 @@
 //
 //  Array.swift
-//  Dropneed
 //
-//  Created by Lakhwinder Singh on 24/04/17.
-//  Copyright © 2017 lakh. All rights reserved.
 //
 
 import UIKit

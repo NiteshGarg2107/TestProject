@@ -1,10 +1,5 @@
 //
 //  JS_NSObject.swift
-//  GampzApp
-//
-//  Created by CSPC178 on 16/03/17.
-//  Copyright © 2017 CSPC178cs. All rights reserved.
-//
 
 import Foundation
 

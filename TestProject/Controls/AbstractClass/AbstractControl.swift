@@ -10,14 +10,24 @@ import UIKit
 
 class AbstractControl: UIViewController,TableCellDelegate,UITextFieldDelegate {
     @IBOutlet var listContainer: UIView!
+    
     class var control: AbstractControl {
         return UIStoryboard.main.instantiateViewController(withIdentifier: String(describing: self)) as! AbstractControl
     }
     
+    //Store Variable
+    var model: AnyObject?
+    
+    class func controlWithModel(_ model: AnyObject) -> AbstractControl {
+        let control = self.control
+        control.model = model
+        return control
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initListControl()
-        // Do any additional setup after loading the view.
     }
     
     var hideNavigationBar: Bool {
@@ -50,6 +60,7 @@ class AbstractControl: UIViewController,TableCellDelegate,UITextFieldDelegate {
         if _tableControl == nil {
             _tableControl = tableClass.init(style: .plain)
             _tableControl.listDelegate = self
+            _tableControl.cellDelegate = self
         }
         
         return _tableControl
@@ -67,16 +78,11 @@ class AbstractControl: UIViewController,TableCellDelegate,UITextFieldDelegate {
 
 extension AbstractControl: TableListDelegate{
     func updateCell() {
-        
+        print("Hello cell")
     }
     
     func updateModel(_ model: AnyObject, cell: AbstractTableCell) {
-        
-    }
-}
-
-extension AbstractControl {
-    override func viewDidAppear(_ animated: Bool) {
+       print("cellClick")
     }
 }
 

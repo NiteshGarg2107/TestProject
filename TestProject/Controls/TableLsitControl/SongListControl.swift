@@ -10,11 +10,9 @@ import UIKit
 
 class SongListControl: AbstractTableListControl {
     
-    
-    var listData: [Any]? = ["wed","asdfasd","sdfasdfs","asdasdas","asdasdas","asdasdasd"]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.noItemsText = "No data found..."
     }
     
     override var cellClass: AbstractTableCell.Type {
@@ -24,17 +22,22 @@ class SongListControl: AbstractTableListControl {
     override var isNibUsed: Bool {
         return false
     }
+    
     override func refresh() {
-        //        needRefresh = true
         super.refresh()
     }
+    
     override func requestItems(_ query: NSString, limit: NSInteger, offset: NSInteger, completion: @escaping (_ : NSArray?, _ : NSError?, _ : Bool?) -> Void) {
-        return completion(listData as NSArray?, nil, false)
+        UserStore.shared.getTableData(Url: DataURL, parameters: [:]) { (success, Data) in
+            if success {
+                return completion(Data as? NSArray, nil, false)
+            }else {
+               completion([], nil, false)
+            }
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        _ =  ActionModelDetail()
+        _ =  ActionSongDetail(items[indexPath.row] as AnyObject)
     }
-    
-
 }
