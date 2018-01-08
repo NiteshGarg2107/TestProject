@@ -34,7 +34,6 @@ class SongListCell: AbstractTableCell {
        return imageView
     }()
     
-    
     //Init Views
     override func initViews() {
         addSubviews([songArtistName,collectionName,userImage])
