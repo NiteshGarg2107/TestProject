@@ -8,4 +8,5 @@ target 'TestProject' do
   # Pods for TestProject
 	 pod 'Alamofire', '~> 4.4'
      pod 'SDWebImage', '~> 4.0'
+     pod 'KVSpinnerView'
 end

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KVSpinnerView
 
 class SongListControl: AbstractTableListControl {
     
@@ -28,7 +29,9 @@ class SongListControl: AbstractTableListControl {
     }
     
     override func requestItems(_ query: NSString, limit: NSInteger, offset: NSInteger, completion: @escaping (_ : NSArray?, _ : NSError?, _ : Bool?) -> Void) {
+        KVSpinnerView.show()
         UserStore.shared.getTableData(Url: DataURL, parameters: [:]) { (success, Data) in
+            KVSpinnerView.dismiss()
             if success {
                 return completion(Data as? NSArray, nil, false)
             }else {

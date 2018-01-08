@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '0511BAB6638B05955221D501A8DED6B2'
-               BlueprintName = 'SDWebImage'
+               BlueprintIdentifier = '884776F09D492EB5826320AF4B046BE3'
+               BlueprintName = 'KVSpinnerView'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'SDWebImage.framework'>
+               BuildableName = 'KVSpinnerView.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
